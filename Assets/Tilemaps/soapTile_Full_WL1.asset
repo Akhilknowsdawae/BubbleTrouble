@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: soapTile_Full_WL1
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300000, guid: 5494fb7a938f9f547929e41682103451, type: 3}
-  m_Color: {r: 0.8962264, g: 0.6721698, b: 0.6721698, a: 1}
+  m_Color: {r: 0.9056604, g: 0.63652545, b: 0.63652545, a: 1}
   m_Transform:
     e00: 1
     e01: 0
