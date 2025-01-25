@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
 {
     public float speed = 600.0f;
     public float lifeTime = 5.0f;
-    float Damage = 0.0f;
+    int Damage = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,16 +31,16 @@ public class Projectile : MonoBehaviour
         transform.position += (new Vector3(transform.rotation.x, transform.rotation.y, 0) * speed * Time.deltaTime);
     }
 
-    public void SetDamage(float inDamage)
+    public void SetDamage(int inDamage)
     {
         Damage = inDamage;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<DummyEnemy>())
+        if (collision.GetComponent<Health>())
         {
-            // Do Damage
+            collision.GetComponent<Health>().TakeDamage(Damage);
             Destroy(gameObject);
         }
     }
