@@ -52,6 +52,7 @@ public abstract class BaseTower : MonoBehaviour
             if (fireTimer <= 0.0f)
             {
                 bCanAction = true;
+                fireTimer = fireRate;
             }
         }
     }
@@ -66,5 +67,11 @@ public abstract class BaseTower : MonoBehaviour
 
             transform.rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, angle));
         }
+    }
+
+    public void PlaceTower()
+    {
+        dragAndDrop.enabled = false;
+        scanner.enabled = true;
     }
 }
