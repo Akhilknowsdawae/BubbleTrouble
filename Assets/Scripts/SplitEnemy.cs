@@ -5,31 +5,29 @@ using UnityEngine;
 public class SplitEnemy : MonoBehaviour
 {
     [Header("Attributes")]
-    [SerializeField] private GameObject smallerEnemyPrefab;
-    [SerializeField] private int splitCount = 3; // Number of smaller enemies to spawn
-    [SerializeField] private float spreadRadius = 1.0f; // How far smaller enemies will spawn from the original point
+    [SerializeField] public GameObject smallerEnemyPrefab;
+    [SerializeField] public int numberOfEnemies = 3; // Number of smaller enemies to spawn
+    
 
-    private void OnDestroy()
+    private EnemyMovement enemyMovement;
+
+    private void Start()
     {
-        SpawnSmallerEnemies();
+        enemyMovement = GetComponent<EnemyMovement>();
     }
 
-    private void SpawnSmallerEnemies()
+    public void Split()
     {
-        for (int i = 0; i < splitCount; i++)
+        Vector2 position = transform.position;
+        int pathIndex = enemyMovement.GetCurrentPathIndex();
+
+        for(int i = 0; i < numberOfEnemies; i++)
         {
-            
-            Vector3 offset = Random.insideUnitCircle * spreadRadius;
-            Vector3 spawnPosition = transform.position + offset;
-
-            GameObject smallerEnemy = Instantiate(smallerEnemyPrefab, spawnPosition, Quaternion.identity);
-
-            
-            EnemyMovement enemyMovement = smallerEnemy.GetComponent<EnemyMovement>();
-            if (enemyMovement != null)
-            {
-                enemyMovement.SetMoveSpeed(enemyMovement.GetMoveSpeed() * 1.5f); // Increase speed of smaller enemies
-            }
+            GameObject newEnemy = Instantiate(smallerEnemyPrefab, position, Quaternion.identity);
+            EnemyMovement newEnemyMovement = newEnemy.GetComponent<EnemyMovement>();
+            newEnemyMovement.SetPathIndex(pathIndex);
         }
+
+        Destroy(gameObject);
     }
 }
