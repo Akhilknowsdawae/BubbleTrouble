@@ -42,4 +42,14 @@ public class EnemyMovement : MonoBehaviour
 
         rb.velocity = direction * movespeed;
     }
+
+    public float GetMoveSpeed()
+    {
+        return movespeed;
+    }
+
+    public void SetMoveSpeed(float newSpeed)
+    {
+        movespeed = newSpeed;
+    }
 }
