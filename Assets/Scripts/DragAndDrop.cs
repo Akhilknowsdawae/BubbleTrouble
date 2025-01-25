@@ -7,6 +7,8 @@ public class DragAndDrop : MonoBehaviour
 {
     public Tilemap Map;
     public float Radius = 0.5f;
+    TowerSpace placement;
+    bool bPlaced = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,25 +24,59 @@ public class DragAndDrop : MonoBehaviour
 
     Vector2 FindSnapPosition()
     {
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, Radius, LayerMask.GetMask("Default"));
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, Radius, LayerMask.GetMask("TowerPlacement"));
 
         float closestDistance = 100.0f;
-        Vector2 snapPoint = transform.position;
+        Vector2 snapPosition = transform.position;
+
+        if (hitColliders.Length == 0) 
+        {
+            placement = null;
+        }
 
         foreach (Collider2D c in hitColliders)
         {
-            if (c.CompareTag("TowerPlacement"))
+            if (c.GetComponent<TowerSpace>())
             {
                 float testDistance = Mathf.Abs((c.transform.position - transform.position).magnitude);
 
                 if (testDistance < closestDistance)
                 {
                     closestDistance = testDistance;
-                    snapPoint = c.transform.position;
+                    placement = c.GetComponent<TowerSpace>();
+                    snapPosition = placement.transform.position;
                 }
             }
         }
 
-        return snapPoint;
+        Debug.Log(placement);
+
+        return snapPosition;
+    }
+
+    private void OnMouseDrag()
+    {
+        if (!bPlaced)
+        {
+            transform.position = GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
+        }
+        
+    }
+
+    private void OnMouseUp()
+    {
+        if (placement && !bPlaced)
+        {
+            if (placement.GetHasTower() == false)
+            {
+                GetComponent<BaseTower>().PlaceTower();
+                placement.SetHasTower(true);
+                bPlaced = true;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }
