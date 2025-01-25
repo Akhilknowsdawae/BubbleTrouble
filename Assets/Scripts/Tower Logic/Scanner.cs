@@ -50,12 +50,12 @@ public class Scanner : MonoBehaviour
         // Filter results for enemy class or tag using a layer mask
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, range);
 
-        List<DummyEnemy> enemies = new List<DummyEnemy>();
+        List<EnemyMovement> enemies = new List<EnemyMovement>();
 
         // Filter this list further to gather only the enemy script/class of the object
         foreach (Collider2D c in colliders)
         {
-            DummyEnemy enemy = c.GetComponent<DummyEnemy>();
+            EnemyMovement enemy = c.GetComponent<EnemyMovement>();
 
             if (enemy)
             {
@@ -86,13 +86,13 @@ public class Scanner : MonoBehaviour
         return null;
     }
 
-    Transform GetClosestEnemyToBase(List<DummyEnemy> Enemies)
+    Transform GetClosestEnemyToBase(List<EnemyMovement> Enemies)
     {
         float closestDistance = 100.0f;
         Transform desiredTarget = null;
         Transform home = GameObject.Find("HomeBase").transform;
 
-        foreach (DummyEnemy enemy in Enemies)
+        foreach (EnemyMovement enemy in Enemies)
         {
             float testDistance = Mathf.Abs((enemy.transform.position - home.position).magnitude);
 
@@ -106,12 +106,12 @@ public class Scanner : MonoBehaviour
         return desiredTarget;
     }
 
-    Transform GetEnemyWithMostHealth(List<DummyEnemy> Enemies)
+    Transform GetEnemyWithMostHealth(List<EnemyMovement> Enemies)
     {
         float highestHealth = 0.0f;
         Transform desiredTarget = null;
 
-        foreach (DummyEnemy enemy in Enemies)
+        foreach (EnemyMovement enemy in Enemies)
         {
             // Get enemy remaining health
             // If health is higher than highestHealth variable, record it
@@ -121,12 +121,12 @@ public class Scanner : MonoBehaviour
         return desiredTarget;
     }
 
-    Transform GetEnemyWithMostDamage(List<DummyEnemy> Enemies)
+    Transform GetEnemyWithMostDamage(List<EnemyMovement> Enemies)
     {
         float highestDamage = 0.0f;
         Transform desiredTarget = null;
 
-        foreach (DummyEnemy enemy in Enemies)
+        foreach (EnemyMovement enemy in Enemies)
         {
             // Get enemy damage value
             // if damage value is higher than highestDamage variable, record it

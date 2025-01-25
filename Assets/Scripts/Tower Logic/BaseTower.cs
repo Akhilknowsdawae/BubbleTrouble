@@ -11,7 +11,7 @@ public abstract class BaseTower : MonoBehaviour
     protected float Range = 10.0f;
 
     [SerializeField]
-    protected float Damage = 2.0f;
+    protected int Damage = 2;
 
     [SerializeField]
     protected float fireRate = 1.0f;
@@ -22,6 +22,8 @@ public abstract class BaseTower : MonoBehaviour
     protected bool bCanAction = true;
 
     float fireTimer = 0.0f;
+
+    int costToBuy = 100;
 
     // Start is called before the first frame update
     virtual protected void Start()
@@ -73,5 +75,10 @@ public abstract class BaseTower : MonoBehaviour
     {
         dragAndDrop.enabled = false;
         scanner.enabled = true;
+    }
+
+    public int GetCostToBuy()
+    {
+        return costToBuy;
     }
 }
