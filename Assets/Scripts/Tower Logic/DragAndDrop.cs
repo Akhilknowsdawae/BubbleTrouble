@@ -49,21 +49,10 @@ public class DragAndDrop : MonoBehaviour
             }
         }
 
-        Debug.Log(placement);
-
         return snapPosition;
     }
 
-    private void OnMouseDrag()
-    {
-        if (!bPlaced)
-        {
-            transform.position = GameObject.Find("Main Camera").GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
-        }
-        
-    }
-
-    private void OnMouseUp()
+    public void TryPlacement()
     {
         if (placement && !bPlaced)
         {
@@ -72,6 +61,7 @@ public class DragAndDrop : MonoBehaviour
                 GetComponent<BaseTower>().PlaceTower();
                 placement.SetHasTower(true);
                 bPlaced = true;
+                transform.position = placement.transform.position;
             }
             else
             {
