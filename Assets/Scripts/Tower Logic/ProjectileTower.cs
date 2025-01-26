@@ -32,6 +32,7 @@ public class ProjectileTower : BaseTower
             {
                 GameObject proj = Instantiate(projectile, transform.position, Quaternion.Euler((scanner.GetTarget().transform.position - transform.position)));
                 proj.GetComponent<Projectile>().SetDamage(Damage);
+                proj.GetComponent<Projectile>().SetTarget(scanner.GetTarget());
             }
 
             bCanAction = false;

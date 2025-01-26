@@ -43,17 +43,20 @@ public class MeleeScanner : Scanner
 
                 foreach (Collider2D hit in hits)
                 {
-                    float testDistance = 100.0f;
+                    if (hit)
+                    {
+                        float testDistance = 100.0f;
 
-                    if (hit.GetComponent<EnemyMovement>())
-                    {
-                        testDistance = hit.GetComponent<EnemyMovement>().GetRemainingTravelDistance();
-                    }
-                    
-                    if (testDistance < closestDistance)
-                    {
-                        closestDistance = testDistance;
-                        desiredTarget = hit.transform;
+                        if (hit.GetComponent<EnemyMovement>())
+                        {
+                            testDistance = hit.GetComponent<EnemyMovement>().GetRemainingTravelDistance();
+                        }
+
+                        if (testDistance < closestDistance)
+                        {
+                            closestDistance = testDistance;
+                            desiredTarget = hit.transform;
+                        }
                     }
                 }
 

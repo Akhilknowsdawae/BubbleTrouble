@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -3667836335431186431}
   - component: {fileID: 2909959749380230150}
   - component: {fileID: 1709103889085600866}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GeneratorTower
   m_TagString: Generator
   m_Icon: {fileID: 0}
@@ -104,6 +104,7 @@ MonoBehaviour:
   fireRate: 1
   bShouldRotate: 0
   costToBuy: 100
+  rangeIndicator: {fileID: 0}
   currencyGeneration: 10
 --- !u!114 &2909959749380230150
 MonoBehaviour:
@@ -117,7 +118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5698608de3be64d4783ad8396ec8fbdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Map: {fileID: 0}
   Radius: 0.5
 --- !u!50 &1709103889085600866
 Rigidbody2D:
