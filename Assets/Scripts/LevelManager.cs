@@ -13,4 +13,14 @@ public class LevelManager : MonoBehaviour
     {
         main = this;
     }
+
+    public void gameOver()
+    {
+
+    }
+
+    public void restart()
+    {
+
+    }
 }
