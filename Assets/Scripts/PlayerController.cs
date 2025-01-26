@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using static UnityEngine.GraphicsBuffer;
 
 public class PlayerController : MonoBehaviour
 {
@@ -30,6 +32,15 @@ public class PlayerController : MonoBehaviour
         if (newTower)
         {
             Vector3 pos = Input.mousePosition;
+            
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                Vector3 euler = newTower.transform.rotation.eulerAngles;
+                euler.z += 90.0f;
+
+                newTower.transform.rotation = Quaternion.Euler(euler);
+            }
+
             newTower.transform.position = mainCamera.ScreenToWorldPoint(new Vector3(pos.x, pos.y, 0.0f));
         }
     }
@@ -53,8 +64,17 @@ public class PlayerController : MonoBehaviour
     {
         if (newTower)
         {
-            newTower.GetComponent<DragAndDrop>().TryPlacement();
-            newTower = null;
+            bool success = newTower.GetComponent<DragAndDrop>().TryPlacement();
+
+            if (success)
+            {
+                newTower = null;
+            }
+            else
+            {
+                currency += newTower.GetComponent<BaseTower>().GetCostToBuy();
+                Destroy(newTower);
+            }
         }
     }
 }
