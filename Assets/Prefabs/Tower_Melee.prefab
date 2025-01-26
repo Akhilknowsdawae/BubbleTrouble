@@ -104,10 +104,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Range: 10
-  Damage: 2
+  Damage: 3
   fireRate: 1
   bShouldRotate: 0
-  costToBuy: 100
+  costToBuy: 120
   rangeIndicator: {fileID: 8162827945805825969}
   meleeSound: {fileID: 2630528765996779428}
 --- !u!114 &2909959749380230150

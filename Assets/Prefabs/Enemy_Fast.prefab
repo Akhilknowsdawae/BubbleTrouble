@@ -179,6 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splitEnemy: {fileID: 0}
   hitPoints: 1
+  unitCurrency: 10
   isSplit: 0
 --- !u!114 &7888719194034852572
 MonoBehaviour:
