@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     public float speed = 600.0f;
     public float lifeTime = 5.0f;
     int Damage = 0;
+    public AudioSource bulletLandSound;
 
     Transform Target;
 
@@ -43,6 +44,7 @@ public class Projectile : MonoBehaviour
     {
         if (collision.transform == Target)
         {
+            bulletLandSound.Play();
             collision.GetComponent<Health>().TakeDamage(Damage);
             Destroy(gameObject);
         }
