@@ -179,6 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splitEnemy: {fileID: 0}
   hitPoints: 4
+  unitCurrency: 10
   isSplit: 0
 --- !u!114 &9033301723295589735
 MonoBehaviour:
@@ -192,4 +193,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 601f1eab39f649d44a92ecd33c299bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 4

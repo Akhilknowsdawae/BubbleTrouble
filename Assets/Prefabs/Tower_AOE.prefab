@@ -190,11 +190,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8083d6d6602f444fb5b97fabd3817a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 2
+  Range: 1.5
   Damage: 1
   fireRate: 2
   bShouldRotate: 0
-  costToBuy: 100
+  costToBuy: 120
   rangeIndicator: {fileID: 3091601226147085800}
   aoeSound: {fileID: 1835383158913842471}
 --- !u!82 &1835383158913842471

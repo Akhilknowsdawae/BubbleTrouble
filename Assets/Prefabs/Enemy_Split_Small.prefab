@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8798261159057727176}
-  movespeed: 2
+  movespeed: 3
 --- !u!114 &-7175982144089377531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +178,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splitEnemy: {fileID: 0}
-  hitPoints: 2
+  hitPoints: 1
+  unitCurrency: 10
   isSplit: 0
 --- !u!114 &8616016025128034944
 MonoBehaviour:

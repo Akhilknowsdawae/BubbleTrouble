@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8798261159057727176}
-  movespeed: 2
+  movespeed: 1.5
 --- !u!114 &-7175982144089377531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +179,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splitEnemy: {fileID: 3959548927322163433}
-  hitPoints: 2
+  hitPoints: 3
+  unitCurrency: 0
   isSplit: 1
 --- !u!114 &3959548927322163433
 MonoBehaviour:
@@ -208,4 +209,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 601f1eab39f649d44a92ecd33c299bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 3
