@@ -26,11 +26,14 @@ public class SplitEnemy : MonoBehaviour
         {
             Vector2 offset = GetRandomOffset();
             GameObject newEnemy = Instantiate(smallerEnemyPrefab, originalPosition + offset, Quaternion.identity);
+
             EnemyMovement newEnemyMovement = newEnemy.GetComponent<EnemyMovement>();
             newEnemyMovement.SetPathIndex(pathIndex);
         }
 
         EnemySpawner.onEnemySplit?.Invoke(numberOfEnemies);
+
+        EnemySpawner.onEnemyDestroy?.Invoke();
 
         Destroy(gameObject);
     }

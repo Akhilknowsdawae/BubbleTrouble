@@ -22,8 +22,8 @@ public class EnemySpawner : MonoBehaviour
 
     private int currentWave = 1;
     private float timeSinceLastSpawn;
-    private int enemiesAlive;
-    private int enemiesLefttoSpawn;
+    [SerializeField] private int enemiesAlive;
+    [SerializeField] private int enemiesLefttoSpawn;
     private float eps; //Enemies per second
     private bool isSpawning = false;
 
