@@ -178,7 +178,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e023e8c63355141adbde25dd5481a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splitEnemy: {fileID: 3959548927322163433}
   hitPoints: 2
+  isSplit: 1
 --- !u!114 &3959548927322163433
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,17 +18,19 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float enemiesPerSecondCap = 15f;
 
     public static UnityEvent onEnemyDestroy = new UnityEvent();
+    public static UnityEvent<int> onEnemySplit = new UnityEvent<int>();
 
     private int currentWave = 1;
     private float timeSinceLastSpawn;
-    private int enemiesAlive;
-    private int enemiesLefttoSpawn;
+    [SerializeField] private int enemiesAlive;
+    [SerializeField] private int enemiesLefttoSpawn;
     private float eps; //Enemies per second
     private bool isSpawning = false;
 
     private void Awake()
     {
         onEnemyDestroy.AddListener(EnemyDestroyed);
+        onEnemySplit.AddListener(EnemiesSplit);
     }
     private void Start()
     {
@@ -59,6 +61,11 @@ public class EnemySpawner : MonoBehaviour
     private void EnemyDestroyed()
     {
         enemiesAlive--;
+    }
+
+    private void EnemiesSplit(int splitCount)
+    {
+        enemiesAlive += splitCount;
     }
 
     private IEnumerator StartWave()
