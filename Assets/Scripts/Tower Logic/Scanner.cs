@@ -73,7 +73,7 @@ public class Scanner : MonoBehaviour
                 case EPriority.HighestHealth:
                     return GetEnemyWithMostHealth(enemies).transform;
                 case EPriority.HighestDamage:
-                    return GetEnemyWithMostDamage(enemies).transform;
+                    return GetEnemyFurthestFromBase(enemies).transform;
             }
         }
         else
@@ -90,11 +90,10 @@ public class Scanner : MonoBehaviour
     {
         float closestDistance = 100.0f;
         Transform desiredTarget = null;
-        Transform home = GameObject.Find("HomeBase").transform;
 
         foreach (EnemyMovement enemy in Enemies)
         {
-            float testDistance = Mathf.Abs((enemy.transform.position - home.position).magnitude);
+            float testDistance = enemy.GetRemainingTravelDistance();
 
             if (testDistance < closestDistance)
             {
@@ -113,24 +112,32 @@ public class Scanner : MonoBehaviour
 
         foreach (EnemyMovement enemy in Enemies)
         {
-            // Get enemy remaining health
-            // If health is higher than highestHealth variable, record it
-            // Set target to the queried enemy transform if health is recorded
+            int health = enemy.GetComponent<Health>().GetRemainingHealth();
+
+            if (health > highestHealth)
+            {
+                highestHealth = health;
+                desiredTarget = enemy.transform;
+            }
         }
 
         return desiredTarget;
     }
 
-    Transform GetEnemyWithMostDamage(List<EnemyMovement> Enemies)
+    Transform GetEnemyFurthestFromBase(List<EnemyMovement> Enemies)
     {
-        float highestDamage = 0.0f;
+        float furthestDistance = 0.0f;
         Transform desiredTarget = null;
 
         foreach (EnemyMovement enemy in Enemies)
         {
-            // Get enemy damage value
-            // if damage value is higher than highestDamage variable, record it
-            // Set target to the queried enemy transform if damage is recorded
+            float testDistance = enemy.GetRemainingTravelDistance();
+
+            if (testDistance > furthestDistance)
+            {
+                furthestDistance = testDistance;
+                desiredTarget = enemy.transform;
+            }
         }
 
         return desiredTarget;
@@ -151,7 +158,7 @@ public class Scanner : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<DummyEnemy>())
+        if (other.GetComponent<EnemyMovement>())
         {
             if (bSleep)
             {
