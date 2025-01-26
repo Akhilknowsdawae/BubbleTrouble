@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,6 +19,7 @@ public class BaseHealth : MonoBehaviour
     public UnityEngine.UI.Image Soap_2;
     public UnityEngine.UI.Image Soap_3;
     public UnityEngine.UI.Image Soap_4;
+    public TextMeshProUGUI LivesText; 
 
     void Start()
     {
@@ -30,6 +32,9 @@ public class BaseHealth : MonoBehaviour
 
     void Update()
     {
+
+        LivesText.text = health.ToString();
+
         if (health >= 75 && health < 100)
         {
             Soap_1.gameObject.SetActive(false);
