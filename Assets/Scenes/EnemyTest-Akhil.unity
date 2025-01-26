@@ -308,13 +308,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 7054800013371651109, guid: fd3f4d81127c457458f54f370fbe55a4, type: 3}
-  - {fileID: 7054800013371651109, guid: e0c933927e052e2458ffd6567628a113, type: 3}
   - {fileID: 7054800013371651109, guid: fd3f4d81127c457458f54f370fbe55a4, type: 3}
   - {fileID: 7054800013371651109, guid: fd3f4d81127c457458f54f370fbe55a4, type: 3}
   - {fileID: 7054800013371651109, guid: ad1c4f3af05eb41419786a331dd8b368, type: 3}
-  - {fileID: 7054800013371651109, guid: fd3f4d81127c457458f54f370fbe55a4, type: 3}
-  updatePath: {fileID: 0}
-  baseEnemies: 8
+  - {fileID: 7054800013371651109, guid: e0c933927e052e2458ffd6567628a113, type: 3}
+  - {fileID: 7054800013371651109, guid: 49e4e89665c98b9429e15f5f2c35a9ee, type: 3}
+  baseEnemies: 4
   enemiesPerSecond: 0.5
   timeBetweenWaves: 5
   difficultyScalingFactor: 0.75
@@ -768,7 +767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822c57c22b13da8479f7b3af6f98d20d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelManager: {fileID: 0}
+  LevelManager: {fileID: 34781738}
   health: 0
   maxhealth: 100
   Soap_1: {fileID: 667926012}
