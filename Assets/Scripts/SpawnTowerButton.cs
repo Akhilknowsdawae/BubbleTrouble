@@ -29,8 +29,6 @@ public class SpawnTowerButton : MonoBehaviour
         {
             if (!bAffordable)
             {
-                ColorBlock color = new ColorBlock();
-                color.normalColor = new Color(0, 0, 1, 0.5f);
                 bAffordable = true;
             }
         }
@@ -38,8 +36,6 @@ public class SpawnTowerButton : MonoBehaviour
         {
             if (bAffordable)
             {
-                ColorBlock color = new ColorBlock();
-                color.normalColor = new Color(1, 0, 0, 0.5f);
                 bAffordable = false;
             }
         }
