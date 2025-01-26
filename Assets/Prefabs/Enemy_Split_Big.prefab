@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3959548927322163433}
   - component: {fileID: 6393911333217536880}
   m_Layer: 0
-  m_Name: Enemy_Split_Big
+  m_Name: SplitEnemyBig
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,11 +76,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -620738825
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8633d9f2e2b0cbd46abeb53540345ad5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 35c7fe71fc4f5134a86f6b861726d399, type: 3}
+  m_Color: {r: 0.9843137, g: 0.9489559, b: 0.85490197, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -178,7 +178,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e023e8c63355141adbde25dd5481a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splitEnemy: {fileID: 3959548927322163433}
   hitPoints: 2
+  isSplit: 1
 --- !u!114 &3959548927322163433
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,7 +5,6 @@ using UnityEngine.Tilemaps;
 
 public class DragAndDrop : MonoBehaviour
 {
-    public Tilemap Map;
     public float Radius = 0.5f;
     TowerSpace placement;
     bool bPlaced = false;
@@ -13,7 +12,7 @@ public class DragAndDrop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
