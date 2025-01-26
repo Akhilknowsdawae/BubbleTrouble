@@ -6,7 +6,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class PlayerController : MonoBehaviour
 {
-    int currency = 100;
+    int currency = 500;
     GameObject newTower;
     public Camera mainCamera;
 
