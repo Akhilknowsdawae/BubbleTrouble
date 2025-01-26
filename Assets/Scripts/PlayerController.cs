@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
                 newTower.transform.rotation = Quaternion.Euler(euler);
             }
 
-            newTower.transform.position = mainCamera.ScreenToWorldPoint(new Vector3(pos.x, pos.y, 0.0f));
+            newTower.transform.position = mainCamera.ScreenToWorldPoint(new Vector3(pos.x, pos.y, 0.1f));
         }
     }
 
@@ -102,50 +102,65 @@ public class PlayerController : MonoBehaviour
 
         if (hit.collider)
         {
-            BaseTower tower = hit.collider.GetComponent<BaseTower>();
-
-            if (tower)
+            SpriteRenderer sprite = hit.collider.GetComponent<SpriteRenderer>();
+            if (sprite)
             {
-                if (tower == selectedTower)
+                if (PointInsideSprite(sprite, hit.point))
                 {
-                    selectedTower = null;
+                    BaseTower tower = hit.collider.GetComponent<BaseTower>();
 
-                    setPriorityClose.onClick.RemoveAllListeners();
-                    setPriorityClose.gameObject.SetActive(false);
-
-                    setPriorityFar.onClick.RemoveAllListeners();
-                    setPriorityFar.gameObject.SetActive(false);
-
-                    setPriorityHealth.onClick.RemoveAllListeners();
-                    setPriorityHealth.gameObject.SetActive(false);
-
-                    Upgrade.onClick.RemoveAllListeners();
-                    Upgrade.gameObject.SetActive(false);
-                }
-                {
-                    if (selectedTower)
+                    if (tower)
                     {
-                        setPriorityClose.onClick.RemoveAllListeners();
-                        setPriorityFar.onClick.RemoveAllListeners();
-                        setPriorityHealth.onClick.RemoveAllListeners();
-                        Upgrade.onClick.RemoveAllListeners();
+                        if (tower == selectedTower)
+                        {
+                            selectedTower = null;
+
+                            setPriorityClose.onClick.RemoveAllListeners();
+                            setPriorityClose.gameObject.SetActive(false);
+
+                            setPriorityFar.onClick.RemoveAllListeners();
+                            setPriorityFar.gameObject.SetActive(false);
+
+                            setPriorityHealth.onClick.RemoveAllListeners();
+                            setPriorityHealth.gameObject.SetActive(false);
+
+                            Upgrade.onClick.RemoveAllListeners();
+                            Upgrade.gameObject.SetActive(false);
+                        }
+                        else
+                        {
+                            if (selectedTower)
+                            {
+                                setPriorityClose.onClick.RemoveAllListeners();
+                                setPriorityFar.onClick.RemoveAllListeners();
+                                setPriorityHealth.onClick.RemoveAllListeners();
+                                Upgrade.onClick.RemoveAllListeners();
+                            }
+
+                            selectedTower = tower;
+
+                            setPriorityClose.gameObject.SetActive(true);
+                            setPriorityClose.onClick.AddListener(selectedTower.GetScanner().PriorityClose);
+
+                            setPriorityFar.gameObject.SetActive(true);
+                            setPriorityFar.onClick.AddListener(selectedTower.GetScanner().PriorityFar);
+
+                            setPriorityHealth.gameObject.SetActive(true);
+                            setPriorityHealth.onClick.AddListener(selectedTower.GetScanner().PriorityHealth);
+
+                            Upgrade.gameObject.SetActive(true);
+                            Upgrade.onClick.AddListener(selectedTower.UpgradeStats);
+                        }
                     }
-
-                    selectedTower = tower;
-
-                    setPriorityClose.gameObject.SetActive(true);
-                    setPriorityClose.onClick.AddListener(selectedTower.GetScanner().PriorityClose);
-
-                    setPriorityFar.gameObject.SetActive(true);
-                    setPriorityFar.onClick.AddListener(selectedTower.GetScanner().PriorityFar);
-
-                    setPriorityHealth.gameObject.SetActive(true);
-                    setPriorityHealth.onClick.AddListener(selectedTower.GetScanner().PriorityHealth);
-
-                    Upgrade.gameObject.SetActive(true);
-                    Upgrade.onClick.AddListener(selectedTower.UpgradeStats);
                 }
             }
         }
+    }
+
+    bool PointInsideSprite(SpriteRenderer sprite, Vector2 point)
+    {
+        Vector2 localPoint = sprite.transform.InverseTransformPoint(point);
+
+        return sprite.sprite.bounds.Contains(localPoint);
     }
 }
