@@ -10,7 +10,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class PlayerController : MonoBehaviour
 {
-    int currency = 500;
+    [SerializeField] int currency = 500;
     GameObject newTower;
     BaseTower selectedTower;
     public Camera mainCamera;
