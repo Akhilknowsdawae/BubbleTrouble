@@ -23,7 +23,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
-        target = LevelManager.main.path[pathIndex];
+        SetTargetForPathIndex();
         TotalDistance = CalculateTotalPathDistance();
         remainingDistance = TotalDistance;
         PreviousPos = transform.position;
@@ -37,6 +37,7 @@ public class EnemyMovement : MonoBehaviour
 
             if (pathIndex == LevelManager.main.path.Length)
             {
+                EnemySpawner.onEnemyDestroy.Invoke();
                 Destroy(gameObject);
                 return;
             }
@@ -92,5 +93,27 @@ public class EnemyMovement : MonoBehaviour
     public float GetRemainingTravelDistance()
     {
         return remainingDistance;
+    }
+
+    public void SetPathIndex(int index)
+    {
+        if(index >= 0 && index < LevelManager.main.path.Length)
+        {
+            pathIndex = index;
+            target = LevelManager.main.path[pathIndex];
+        }
+    }
+
+    public int GetCurrentPathIndex()
+    {
+        return pathIndex;
+    }
+
+    private void SetTargetForPathIndex()
+    {
+        if(pathIndex < LevelManager.main.path.Length)
+        {
+            target = LevelManager.main.path[pathIndex];
+        }
     }
 }
