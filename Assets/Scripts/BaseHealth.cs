@@ -5,22 +5,25 @@ using UnityEngine;
 
 public class BaseHealth : MonoBehaviour
 {
+    [Header("References")]
+    public LevelManager LevelManager;
 
     [Header("Attributes")]
     [SerializeField] public int health;
     [SerializeField] public int maxhealth = 100;
+    private bool isDead = false;
     void Start()
     {
         health = maxhealth;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (health <= 0)
+        if (health <= 0 && !isDead)
         {
-            Time.timeScale = 0;
+            isDead = true;
             //Put in gameover sequence here.
+            LevelManager.gameOver();
         }
     }
 }
