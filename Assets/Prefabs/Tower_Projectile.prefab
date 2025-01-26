@@ -10,12 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4907777421738878774}
   - component: {fileID: 6008397721812063131}
-  - component: {fileID: -3667836335431186431}
+  - component: {fileID: 9129876017199548714}
+  - component: {fileID: 6000813281514584346}
   - component: {fileID: 2909959749380230150}
+  - component: {fileID: 2201241317011885106}
   - component: {fileID: 1709103889085600866}
   m_Layer: 0
-  m_Name: GeneratorTower
-  m_TagString: Generator
+  m_Name: Tower_Projectile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9ea72647c24be493ba6f15a9cd2a24ae, type: 3}
-  m_Color: {r: 0, g: 0.09113073, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 4193138843e1d2045badd8e478d44458, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -87,7 +89,42 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-3667836335431186431
+--- !u!58 &9129876017199548714
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8787988909074493404}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 5
+--- !u!114 &6000813281514584346
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,15 +133,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8787988909074493404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f7d6549daa68d14c896ec7c647946ce, type: 3}
+  m_Script: {fileID: 11500000, guid: 44bb8b19b3a931449ab619d7812fcf9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Range: 10
   Damage: 2
   fireRate: 1
-  bShouldRotate: 0
+  bShouldRotate: 1
   costToBuy: 100
-  currencyGeneration: 10
+  projectile: {fileID: 6873199799611882900, guid: e4ff79903c5c7814d828e011cee71da0, type: 3}
 --- !u!114 &2909959749380230150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +156,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Map: {fileID: 0}
   Radius: 0.5
+--- !u!114 &2201241317011885106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8787988909074493404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f0e595b6e92bc42b103940fba424e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &1709103889085600866
 Rigidbody2D:
   serializedVersion: 4
