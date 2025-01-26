@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1485171528782121345}
   - component: {fileID: 4936430109239468489}
   - component: {fileID: -7175982144089377531}
+  - component: {fileID: 8616016025128034944}
   m_Layer: 0
   m_Name: SplitEnemySmall
   m_TagString: Untagged
@@ -177,3 +178,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPoints: 2
+--- !u!114 &8616016025128034944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7054800013371651109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601f1eab39f649d44a92ecd33c299bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
