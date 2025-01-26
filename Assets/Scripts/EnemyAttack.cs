@@ -7,11 +7,12 @@ public class EnemyAttack : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] public int damage = 1;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.gameObject.GetComponent<BaseHealth>())
+        if (collider.gameObject.tag == "Base")
         {
-            collision.gameObject.GetComponent<BaseHealth>().health -= damage;
+            Debug.Log("Tower got hit!!");
+            collider.gameObject.GetComponent<BaseHealth>().health -= damage;
         }
     }
 }
