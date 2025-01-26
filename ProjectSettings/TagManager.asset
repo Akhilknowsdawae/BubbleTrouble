@@ -45,3 +45,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Environment
+    uniqueID: 3674228471
+    locked: 0
+  - name: Enemies
+    uniqueID: 3823031505
+    locked: 0
+  - name: Towers
+    uniqueID: 1817198015
+    locked: 0
+  - name: UI
+    uniqueID: 622816929
+    locked: 0
