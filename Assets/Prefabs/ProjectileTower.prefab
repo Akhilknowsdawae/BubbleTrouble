@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6008397721812063131}
   - component: {fileID: 9129876017199548714}
   - component: {fileID: 6000813281514584346}
-  - component: {fileID: 2909959749380230150}
   - component: {fileID: 2201241317011885106}
   - component: {fileID: 1709103889085600866}
+  - component: {fileID: 3714653145912780537}
   m_Layer: 0
   m_Name: ProjectileTower
   m_TagString: Untagged
@@ -140,21 +140,8 @@ MonoBehaviour:
   Damage: 2
   fireRate: 1
   bShouldRotate: 1
+  costToBuy: 100
   projectile: {fileID: 6873199799611882900, guid: e4ff79903c5c7814d828e011cee71da0, type: 3}
---- !u!114 &2909959749380230150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8787988909074493404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5698608de3be64d4783ad8396ec8fbdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Map: {fileID: 0}
-  Radius: 0.5
 --- !u!114 &2201241317011885106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,3 +181,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3714653145912780537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8787988909074493404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5698608de3be64d4783ad8396ec8fbdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Radius: 0.5

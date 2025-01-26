@@ -5,7 +5,6 @@ using UnityEngine.Tilemaps;
 
 public class DragAndDrop : MonoBehaviour
 {
-    public Tilemap Map;
     public float Radius = 0.5f;
     TowerSpace placement;
     bool bPlaced = false;
