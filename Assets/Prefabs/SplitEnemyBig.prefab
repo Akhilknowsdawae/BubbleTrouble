@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -7175982144089377531}
   - component: {fileID: 3959548927322163433}
   - component: {fileID: 6393911333217536880}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SplitEnemyBig
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 596874255
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.9961398, g: 1, b: 0.6, a: 1}

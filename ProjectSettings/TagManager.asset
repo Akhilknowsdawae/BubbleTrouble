@@ -12,12 +12,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - TowerPlacement
+  - Towers
   - Water
   - UI
-  - Towers
-  - 
-  - 
+  - Enemies
+  - TowerPlacement
+  - WaterTile
   - 
   - 
   - 

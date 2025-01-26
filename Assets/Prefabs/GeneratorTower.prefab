@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -3667836335431186431}
   - component: {fileID: 2909959749380230150}
   - component: {fileID: 1709103889085600866}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: GeneratorTower
   m_TagString: Generator
   m_Icon: {fileID: 0}
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -624014149
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9ea72647c24be493ba6f15a9cd2a24ae, type: 3}
   m_Color: {r: 0, g: 0.09113073, b: 1, a: 1}

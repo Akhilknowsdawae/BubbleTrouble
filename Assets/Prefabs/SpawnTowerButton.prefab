@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4325934953914247488}
   - component: {fileID: 6771922434699663341}
   - component: {fileID: 4918064145183245225}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 7345199735409720673}
   - component: {fileID: 565929594918713570}
   - component: {fileID: 5139444351800101974}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: SpawnTowerButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
