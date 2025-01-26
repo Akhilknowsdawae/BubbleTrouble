@@ -24,7 +24,7 @@ public class Scanner : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    virtual protected void Update()
     {
         if (!target && !bSleep)
         {

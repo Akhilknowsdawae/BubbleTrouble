@@ -6,6 +6,16 @@ public class MeleeScanner : Scanner
 {
     BoxCollider2D box;
 
+    private void Start()
+    {
+        box = GetComponent<BoxCollider2D>();
+    }
+
+    protected override void Update()
+    {
+        
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!target)
