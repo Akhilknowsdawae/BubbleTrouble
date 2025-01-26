@@ -14,10 +14,9 @@ GameObject:
   - component: {fileID: 1485171528782121345}
   - component: {fileID: 4936430109239468489}
   - component: {fileID: -7175982144089377531}
-  - component: {fileID: 3959548927322163433}
-  - component: {fileID: 6393911333217536880}
+  - component: {fileID: 7888719194034852572}
   m_Layer: 0
-  m_Name: SplitEnemyBig
+  m_Name: Enemy_Fast
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: -620738825
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.9961398, g: 1, b: 0.6, a: 1}
+  m_Sprite: {fileID: 21300000, guid: ebbf56e6bdcd25e4c8ebdc7d8004ea7c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -165,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8798261159057727176}
-  movespeed: 2
+  movespeed: 4
 --- !u!114 &-7175982144089377531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,22 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e023e8c63355141adbde25dd5481a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 2
---- !u!114 &3959548927322163433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7054800013371651109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7746a1ad3ee58d744b69396eac8ef0ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smallerEnemyPrefab: {fileID: 7054800013371651109, guid: e2e5bafa678720745bc2bd95b4811c07, type: 3}
-  numberOfEnemies: 3
---- !u!114 &6393911333217536880
+  hitPoints: 1
+--- !u!114 &7888719194034852572
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,4 +191,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  Base: {fileID: 0}
