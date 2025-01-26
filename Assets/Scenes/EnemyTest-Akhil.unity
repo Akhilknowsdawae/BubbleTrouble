@@ -336,10 +336,10 @@ MonoBehaviour:
   LevelManager: {fileID: 0}
   health: 0
   maxhealth: 100
-  Soap_1: {fileID: 0}
-  Soap_2: {fileID: 0}
-  Soap_3: {fileID: 0}
-  Soap_4: {fileID: 0}
+  Soap_1: {fileID: 630171239}
+  Soap_2: {fileID: 833909885}
+  Soap_3: {fileID: 1581823849}
+  Soap_4: {fileID: 1189243501}
 --- !u!61 &37686969
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2911,7 +2911,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c96191c93d7fe1f43b6c0c30a5f0e577, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fcb737537106be345877f94193d38856, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4647,7 +4647,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c96191c93d7fe1f43b6c0c30a5f0e577, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 868d90a2c992f4446812f38ac4c8a204, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6023,7 +6023,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c96191c93d7fe1f43b6c0c30a5f0e577, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0128d2bae87d70e4faa003717df1b2e6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

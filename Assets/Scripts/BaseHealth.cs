@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BaseHealth : MonoBehaviour
 {
@@ -29,17 +30,17 @@ public class BaseHealth : MonoBehaviour
 
     void Update()
     {
-        if (health > 75 && health <= 100)
+        if (health >= 75 && health < 100)
         {
             Soap_1.gameObject.SetActive(false);
             Soap_2.gameObject.SetActive(true);
         }
-        if (health > 50 && health <= 75)
+        if (health < 50 && health < 75)
         {
             Soap_2.gameObject.SetActive(false);
             Soap_3.gameObject.SetActive(true);
         }
-        if (health > 25 && health <= 50)
+        if (health < 25)
         {
             Soap_3.gameObject.SetActive(false);
             Soap_4.gameObject.SetActive(true);
@@ -51,6 +52,8 @@ public class BaseHealth : MonoBehaviour
             isDead = true;
             //Put in gameover sequence here.
             LevelManager.gameOver();
+            SceneManager.LoadScene("GameOver");
+
         }
     }
 }
