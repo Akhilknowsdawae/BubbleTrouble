@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefabs;
+    [SerializeField] private PathVisibility updatePath;
 
     [Header("Attributes")]
     [SerializeField] private int baseEnemies = 8;
@@ -18,21 +19,24 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float enemiesPerSecondCap = 15f;
 
     public static UnityEvent onEnemyDestroy = new UnityEvent();
+    public static UnityEvent<int> onEnemySplit = new UnityEvent<int>();
 
     private int currentWave = 1;
     private float timeSinceLastSpawn;
-    private int enemiesAlive;
-    private int enemiesLefttoSpawn;
+    [SerializeField] private int enemiesAlive;
+    [SerializeField] private int enemiesLefttoSpawn;
     private float eps; //Enemies per second
     private bool isSpawning = false;
 
     private void Awake()
     {
         onEnemyDestroy.AddListener(EnemyDestroyed);
+        onEnemySplit.AddListener(EnemiesSplit);
     }
     private void Start()
     {
         StartCoroutine(StartWave());
+        updatePath = GameObject.FindObjectOfType<PathVisibility>();
     }
 
     private void Update()
@@ -61,6 +65,11 @@ public class EnemySpawner : MonoBehaviour
         enemiesAlive--;
     }
 
+    private void EnemiesSplit(int splitCount)
+    {
+        enemiesAlive += splitCount;
+    }
+
     private IEnumerator StartWave()
     {
         Debug.Log("Wave Started");
@@ -83,8 +92,11 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         int index = Random.Range(0, enemyPrefabs.Length);
-        GameObject prefabToSpawn = enemyPrefabs[index];
-        Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
+        if (enemyPrefabs[index] != null)
+        {
+            GameObject prefabToSpawn = enemyPrefabs[index];
+            Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
+        }
     }
 
     private void EndWave()
@@ -100,6 +112,7 @@ public class EnemySpawner : MonoBehaviour
         isSpawning = false;
         timeSinceLastSpawn = 0f;
         currentWave++;
+        updatePath.UpdateWaterLevel();
         StartCoroutine(StartWave());
     }
 }

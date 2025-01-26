@@ -13,6 +13,7 @@ public class TitleScreen : MonoBehaviour
     public UnityEngine.UI.Button BackButton;
     public UnityEngine.UI.Image Title;
     public TextMeshProUGUI CreditText;
+    public AudioSource hoverButtonSound;
     bool isCredit = false; 
 
 
@@ -29,6 +30,7 @@ public class TitleScreen : MonoBehaviour
 
     public void Credits()
     {
+        hoverButtonSound.Play();
         CreditsButton.gameObject.SetActive(false);
         startButton.gameObject.SetActive(false);
         CreditText.gameObject.SetActive(true);
@@ -38,6 +40,7 @@ public class TitleScreen : MonoBehaviour
 
     public void BackBut()
     {
+        hoverButtonSound.Play();
         CreditsButton.gameObject.SetActive(true);
         startButton.gameObject.SetActive(true);
         CreditText.gameObject.SetActive(false);
@@ -46,8 +49,10 @@ public class TitleScreen : MonoBehaviour
     }
     public void Startbut()
     {
+        hoverButtonSound.Play();
         SceneManager.LoadScene("EnemyTest-Akhil");
     }
+
 
     // Update is called once per frame
     void Update()
