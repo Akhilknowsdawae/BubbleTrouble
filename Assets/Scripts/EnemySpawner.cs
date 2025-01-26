@@ -28,6 +28,9 @@ public class EnemySpawner : MonoBehaviour
     private float eps; //Enemies per second
     private bool isSpawning = false;
 
+    public AudioSource waveStartSound;
+    public AudioSource waveEndSound;
+
     private void Awake()
     {
         onEnemyDestroy.AddListener(EnemyDestroyed);
@@ -74,6 +77,7 @@ public class EnemySpawner : MonoBehaviour
     {
         Debug.Log("Wave Started");
         yield return new WaitForSeconds(timeBetweenWaves);
+        waveStartSound.Play();
 
         isSpawning = true;
         enemiesLefttoSpawn = EnemiesPerWave();
@@ -101,6 +105,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void EndWave()
     {
+        waveEndSound.Play();
         GameObject[] objects = GameObject.FindGameObjectsWithTag("Generator");
         foreach (GameObject obj in objects)
         {

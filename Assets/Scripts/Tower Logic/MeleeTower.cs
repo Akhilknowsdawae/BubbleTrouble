@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MeleeTower : BaseTower
 {
+    public AudioSource meleeSound;
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -27,6 +29,7 @@ public class MeleeTower : BaseTower
         {
             bCanAction = false;
             scanner.GetTarget().GetComponent<Health>().TakeDamage(Damage);
+            meleeSound.Play();
         }
     }
 }
