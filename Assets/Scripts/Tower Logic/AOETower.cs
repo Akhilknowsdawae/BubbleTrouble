@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AOETower : BaseTower
 {
+    public AudioSource aoeSound;
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -36,6 +38,7 @@ public class AOETower : BaseTower
 
                     if (health)
                     {
+                        aoeSound.Play();
                         health.TakeDamage(Damage);
                     }
                 }
