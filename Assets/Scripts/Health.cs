@@ -15,4 +15,9 @@ public class Health : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public int GetRemainingHealth()
+    {
+        return hitPoints;
+    }
 }
