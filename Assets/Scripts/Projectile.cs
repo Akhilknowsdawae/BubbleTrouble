@@ -7,6 +7,9 @@ public class Projectile : MonoBehaviour
     public float speed = 600.0f;
     public float lifeTime = 5.0f;
     int Damage = 0;
+
+    Transform Target;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,10 +41,15 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Health>())
+        if (collision.transform == Target)
         {
             collision.GetComponent<Health>().TakeDamage(Damage);
             Destroy(gameObject);
         }
+    }
+
+    public void SetTarget(Transform target)
+    {
+        Target = target;
     }
 }
