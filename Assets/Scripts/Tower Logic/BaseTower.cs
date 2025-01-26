@@ -133,19 +133,27 @@ public abstract class BaseTower : MonoBehaviour
 
     public void UpgradeStats()
     {
-        if (UpgradeLevel < 3)
+        PlayerController player = GameObject.Find("player").GetComponent<PlayerController>();
+
+        if (player.GetCurrency() >= 50)
         {
-            UpgradeLevel++;
-
-            Range += 0.5f;
-            Damage += 1;
-            fireRate += 1;
-
-            if (circle)
+            if (UpgradeLevel < 3)
             {
-                circle.radius = Range;
+                UpgradeLevel++;
+
+                Range += 0.5f;
+                Damage += 1;
+                fireRate += 1;
+
+                if (circle)
+                {
+                    circle.radius = Range;
+                }
             }
+
+            player.SetCurrency(player.GetCurrency() - 50);
         }
+        
     }
 
     public Scanner GetScanner()
