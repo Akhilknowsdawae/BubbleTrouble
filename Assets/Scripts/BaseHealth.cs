@@ -34,16 +34,22 @@ public class BaseHealth : MonoBehaviour
         {
             Soap_1.gameObject.SetActive(false);
             Soap_2.gameObject.SetActive(true);
+            Soap_3.gameObject.SetActive(false);
+            Soap_4.gameObject.SetActive(false);
         }
-        if (health < 50 && health < 75)
+        else if (health > 50 && health < 75)
         {
             Soap_2.gameObject.SetActive(false);
             Soap_3.gameObject.SetActive(true);
+            Soap_1.gameObject.SetActive(false);
+            Soap_4.gameObject.SetActive(false);
         }
-        if (health < 25)
+        else if (health < 25)
         {
             Soap_3.gameObject.SetActive(false);
             Soap_4.gameObject.SetActive(true);
+            Soap_1.gameObject.SetActive(false);
+            Soap_2.gameObject.SetActive(false);
         }
 
 
