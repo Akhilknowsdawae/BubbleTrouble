@@ -12,7 +12,7 @@ public class GeneratorTower : BaseTower
     {
         base.Start();
 
-        player = GameObject.Find("player").GetComponent<PlayerController>();
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame

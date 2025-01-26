@@ -9,7 +9,6 @@ public class EnemySpawner : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefabs;
-    [SerializeField] private PathVisibility updatePath;
 
     [Header("Attributes")]
     [SerializeField] private int baseEnemies = 8;
@@ -39,7 +38,6 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         StartCoroutine(StartWave());
-        updatePath = GameObject.FindObjectOfType<PathVisibility>();
     }
 
     private void Update()
@@ -117,7 +115,6 @@ public class EnemySpawner : MonoBehaviour
         isSpawning = false;
         timeSinceLastSpawn = 0f;
         currentWave++;
-        updatePath.UpdateWaterLevel();
         StartCoroutine(StartWave());
     }
 }

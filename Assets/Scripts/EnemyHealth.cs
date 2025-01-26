@@ -17,7 +17,7 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
-        playerController = GetComponent<PlayerController>();
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     public void TakeDamage(int dmg)
