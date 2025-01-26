@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -9,7 +10,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class PlayerController : MonoBehaviour
 {
-    int currency = 500;
+    [SerializeField] int currency = 500;
     GameObject newTower;
     BaseTower selectedTower;
     public Camera mainCamera;
@@ -18,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public UnityEngine.UI.Button setPriorityFar;
     public UnityEngine.UI.Button setPriorityHealth;
     public UnityEngine.UI.Button Upgrade;
+    public TextMeshProUGUI DollarText;
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +31,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        DollarText.text = currency.ToString();
+
         MoveNewTower();
 
         if (Input.GetMouseButtonDown(0))
