@@ -34,6 +34,8 @@ public abstract class BaseTower : MonoBehaviour
         scanner.enabled = false;
 
         fireTimer = fireRate;
+
+        GetComponent<CircleCollider2D>().radius = Range;
     }
 
     // Update is called once per frame

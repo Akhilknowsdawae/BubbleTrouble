@@ -52,7 +52,7 @@ public class DragAndDrop : MonoBehaviour
         return snapPosition;
     }
 
-    public void TryPlacement()
+    public bool TryPlacement()
     {
         if (placement && !bPlaced)
         {
@@ -62,11 +62,17 @@ public class DragAndDrop : MonoBehaviour
                 placement.SetHasTower(true);
                 bPlaced = true;
                 transform.position = placement.transform.position;
+
+                return true;
             }
             else
             {
-                Destroy(gameObject);
+                return false;
             }
+        }
+        else
+        {
+            return false;
         }
     }
 }
