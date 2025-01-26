@@ -50,8 +50,8 @@ public class EnemyMovement : MonoBehaviour
         UpdateRemainingDistance();
 
         //Test
-        float remaingDis = GetRemainingTravelDistance();
-        Debug.Log($"Remaining Distance to Travel: {remaingDis}");
+        //float remaingDis = GetRemainingTravelDistance();
+        //Debug.Log($"Remaining Distance to Travel: {remaingDis}");
     }
 
     private void FixedUpdate()
