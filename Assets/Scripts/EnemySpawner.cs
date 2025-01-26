@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -93,6 +94,14 @@ public class EnemySpawner : MonoBehaviour
 
     private void EndWave()
     {
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("Generator");
+        foreach (GameObject obj in objects)
+        {
+            if (obj.GetComponent<GeneratorTower>())
+            {
+                obj.GetComponent<GeneratorTower>().GenerateCurrency();
+            }
+        }
         isSpawning = false;
         timeSinceLastSpawn = 0f;
         currentWave++;

@@ -23,7 +23,7 @@ public abstract class BaseTower : MonoBehaviour
 
     float fireTimer = 0.0f;
 
-    int costToBuy = 100;
+    [SerializeField] protected int costToBuy = 100;
 
     // Start is called before the first frame update
     virtual protected void Start()
@@ -31,16 +31,28 @@ public abstract class BaseTower : MonoBehaviour
         scanner = GetComponent<Scanner>();
         dragAndDrop = GetComponent<DragAndDrop>();
 
-        scanner.enabled = false;
+        if (scanner)
+        {
+            scanner.enabled = false;
+        }
 
         fireTimer = fireRate;
+
+        if (GetComponent<CircleCollider2D>())
+        {
+            GetComponent<CircleCollider2D>().radius = Range;
+        }
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
         ActionCooldown();
-        LookAtTarget(scanner.GetTarget());
+
+        if (scanner)
+        {
+            LookAtTarget(scanner.GetTarget());
+        }
     }
 
     protected abstract void Action();
@@ -74,10 +86,14 @@ public abstract class BaseTower : MonoBehaviour
     public void PlaceTower()
     {
         dragAndDrop.enabled = false;
-        scanner.enabled = true;
+
+        if (scanner)
+        {
+            scanner.enabled = true;
+        }
     }
 
-    public int GetCostToBuy()
+        public int GetCostToBuy()
     {
         return costToBuy;
     }

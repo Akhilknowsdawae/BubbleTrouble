@@ -13,7 +13,7 @@ enum EPriority
 public class Scanner : MonoBehaviour
 {
     EPriority priority = EPriority.Closest;
-    Transform target;
+    protected Transform target;
 
     bool bSleep = false;
 
@@ -24,7 +24,7 @@ public class Scanner : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    virtual protected void Update()
     {
         if (!target && !bSleep)
         {
