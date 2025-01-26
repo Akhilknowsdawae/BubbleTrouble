@@ -183,7 +183,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4.08
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -398,7 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
+  m_ScaleFactor: 0.8
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
@@ -814,8 +814,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95350503536d6f5409cd1ad24a2c62cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BackButton: {fileID: 0}
-  RestartButton: {fileID: 0}
 --- !u!1 &1311002179
 GameObject:
   m_ObjectHideFlags: 0
