@@ -46,7 +46,7 @@ public class TitleScreen : MonoBehaviour
     }
     public void Startbut()
     {
-        SceneManager.LoadScene("Scene Name");
+        SceneManager.LoadScene("EnemyTest-Akhil");
     }
 
     // Update is called once per frame

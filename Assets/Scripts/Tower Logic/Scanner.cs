@@ -6,16 +6,14 @@ using UnityEngine;
 enum EPriority
 {
     Closest = 0,
+    Furthest,
     HighestHealth,
-    HighestDamage,
 }
 
 public class Scanner : MonoBehaviour
 {
     EPriority priority = EPriority.Closest;
     protected Transform target;
-
-    bool bSleep = false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,14 +24,9 @@ public class Scanner : MonoBehaviour
     // Update is called once per frame
     virtual protected void Update()
     {
-        if (!target && !bSleep)
+        if (!target)
         {
-            target = SearchForTarget(5.0f);
-
-            if (target)
-            {
-                Debug.Log(target.name);
-            }
+            target = SearchForTarget(GetComponent<BaseTower>().GetRange());
         }
     }
 
@@ -42,10 +35,23 @@ public class Scanner : MonoBehaviour
         priority = inPriority;
     }
 
+    public void PriorityClose()
+    {
+        SetPriority(EPriority.Closest);
+    }
+    
+    public void PriorityFar()
+    {
+        SetPriority(EPriority.Furthest);
+    }
+
+    public void PriorityHealth()
+    {
+        SetPriority(EPriority.HighestHealth);
+    }
+
     Transform SearchForTarget(float range)
     {
-        Debug.Log("Searching for Target");
-
         // Search for targets in a defined area
         // Filter results for enemy class or tag using a layer mask
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, range);
@@ -72,15 +78,9 @@ public class Scanner : MonoBehaviour
                     return GetClosestEnemyToBase(enemies).transform;
                 case EPriority.HighestHealth:
                     return GetEnemyWithMostHealth(enemies).transform;
-                case EPriority.HighestDamage:
+                case EPriority.Furthest:
                     return GetEnemyFurthestFromBase(enemies).transform;
             }
-        }
-        else
-        {
-            bSleep = true;
-
-            Debug.Log("No enemy in range, sleeping");
         }
 
         return null;
@@ -153,19 +153,6 @@ public class Scanner : MonoBehaviour
         if (collision.transform == target)
         {
             target = null;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.GetComponent<EnemyMovement>())
-        {
-            if (bSleep)
-            {
-                bSleep = false;
-
-                Debug.Log("Enemy entered range, waking up");
-            }
         }
     }
 }
