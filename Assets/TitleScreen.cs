@@ -20,17 +20,16 @@ public class TitleScreen : MonoBehaviour
     void Start()
     {
         startButton.gameObject.SetActive(true);
-        startButton.gameObject.SetActive(true);
+        CreditsButton.gameObject.SetActive(true);
         Title.gameObject.SetActive(true);
         CreditText.gameObject.SetActive(false);
         BackButton.gameObject.SetActive(false);
-
- 
 
     }
 
     public void Credits()
     {
+        CreditsButton.gameObject.SetActive(false);
         startButton.gameObject.SetActive(false);
         CreditText.gameObject.SetActive(true);
         BackButton.gameObject.SetActive(true);
@@ -39,6 +38,7 @@ public class TitleScreen : MonoBehaviour
 
     public void BackBut()
     {
+        CreditsButton.gameObject.SetActive(true);
         startButton.gameObject.SetActive(true);
         CreditText.gameObject.SetActive(false);
         BackButton.gameObject.SetActive(false);
