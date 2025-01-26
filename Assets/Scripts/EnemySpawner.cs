@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefabs;
+    [SerializeField] private PathVisibility updatePath;
 
     [Header("Attributes")]
     [SerializeField] private int baseEnemies = 8;
@@ -32,6 +33,7 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         StartCoroutine(StartWave());
+        updatePath = GameObject.FindObjectOfType<PathVisibility>();
     }
 
     private void Update()
@@ -82,8 +84,11 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         int index = Random.Range(0, enemyPrefabs.Length);
-        GameObject prefabToSpawn = enemyPrefabs[index];
-        Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
+        if (enemyPrefabs[index] != null)
+        {
+            GameObject prefabToSpawn = enemyPrefabs[index];
+            Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
+        }
     }
 
     private void EndWave()
@@ -91,6 +96,7 @@ public class EnemySpawner : MonoBehaviour
         isSpawning = false;
         timeSinceLastSpawn = 0f;
         currentWave++;
+        updatePath.UpdateWaterLevel();
         StartCoroutine(StartWave());
     }
 }

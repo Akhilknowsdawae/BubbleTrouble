@@ -5,14 +5,11 @@ using UnityEngine.Tilemaps;
 
 public class PathVisibility : MonoBehaviour
 {
+    [Header("References")]
+    private EnemySpawner endedWave;
+
     [Header("Water Levels")]
     public List<GameObject> waterLevels;
-
-    [Header("Timer")]
-    [SerializeField]
-    private float targetTime = 10.0f;
-    [SerializeField]
-    private float countDownTime;
 
     // water states
     enum waterState
@@ -40,19 +37,16 @@ public class PathVisibility : MonoBehaviour
             }
         }
 
-        countDownTime = targetTime;
-
         currentWaterState = waterState.WL0;
+
+        endedWave = GameObject.FindObjectOfType<EnemySpawner>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        countDownTime -= Time.deltaTime;
-
-        TimeToFade();
-
+        
         print(currentWaterState);
 
         switch (currentWaterState)
@@ -70,22 +64,30 @@ public class PathVisibility : MonoBehaviour
 
     }
 
-    void TimeToFade()
+    public void UpdateWaterLevel()
     {
-        if (countDownTime <= 0.0f)
+        //if (countDownTime <= 0.0f)
+        //{
+        //    print("Water Level Changing");
+        //    countDownTime = targetTime;
+        //    currentWaterState++;
+        //    //print(currentWaterState);
+        //    if (((int)currentWaterState) > waterLevels.Count)
+        //    {
+        //        currentWaterState = waterState.WL1;
+        //    }
+        //}
+
+        currentWaterState++;
+
+        if (((int)currentWaterState) > waterLevels.Count)
         {
-            print("Water Level Changing");
-            countDownTime = targetTime;
-            currentWaterState++;
-            //print(currentWaterState);
-            if (((int)currentWaterState) > waterLevels.Count)
-            {
-                currentWaterState = waterState.WL1;
-            }
+            currentWaterState = waterState.WL1;
         }
+
     }
 
-    IEnumerator FadeIn(int levelToFade, float fadeSpeed, float aEnd)
+    private IEnumerator FadeIn(int levelToFade, float fadeSpeed, float aEnd)
     {
 
         float aStart = waterLevels[levelToFade].GetComponent<Tilemap>().color.a;
@@ -101,7 +103,7 @@ public class PathVisibility : MonoBehaviour
 
     }
 
-    IEnumerator FadeOut(int levelToFade, float fadeSpeed, float aEnd)
+    private IEnumerator FadeOut(int levelToFade, float fadeSpeed, float aEnd)
     {
 
         float aStart = waterLevels[levelToFade].GetComponent<Tilemap>().color.a;
